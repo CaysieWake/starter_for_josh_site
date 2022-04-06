@@ -12,6 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap" rel="stylesheet">
 
 
+
 <title> <?php
   if (function_exists('is_tag') && is_tag()) {
      single_tag_title("Tag Archive for &quot;"); echo '&quot; - '; }
@@ -36,7 +37,7 @@
 </head>
 <body>
 
-<header class="container-fluid bg1">
+<header class="container-fluid" style="background-size: cover; background-image: url(<?php the_field('headerbackgroundimage') ?>);">
     <div class="container">
 
     <nav class="navbar navbar-expand-md navbar-dark">
@@ -50,7 +51,7 @@
       
         <?php 
 
-wp_nav_menu( array(
+   wp_nav_menu( array(
   'theme_location'  => 'primary',
   'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
   'container'       => 'div',
@@ -64,10 +65,10 @@ wp_nav_menu( array(
 ?>
 
       </nav>
-      
-      <div class="tag">
-      <h1>Games Design For the Future</h1>
-    </div>
+        <div class="tag"><!-- div that holds the content in the middle of the page-->
+        <h1><?php the_field('maintagline'); ?></h1>
+              </div><!-- container-->
+    
     </div> <!-- container -->
     <?php wp_head(); ?> 
 </header>
